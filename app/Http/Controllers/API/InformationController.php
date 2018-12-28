@@ -5,20 +5,23 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Support\Respond;
 use App\Models\Information;
+use App\Repositories\InformationRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class InformationController extends Controller
 {
     private $respond;
+    private $informationRepository;
 
-    public function __construct(Respond $respond) {
+    public function __construct(Respond $respond, InformationRepository $informationRepository) {
         $this -> respond = $respond;
+        $this -> informationRepository = $informationRepository;
     }
 
     public function index(){
         try{
-            $information = Information::all();
+            $information = $this -> informationRepository->getAll();
 
             if($information){
                 return $this->respond->ok($information);
@@ -39,7 +42,7 @@ class InformationController extends Controller
             */
 
 
-            $information = Information::create($request->all());
+            $information = $this -> informationRepository->create($request->all());
 
             if ($information) {
                 return $this -> respond -> ok(["status" => true, "data" => $information]);
