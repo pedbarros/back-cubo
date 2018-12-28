@@ -2,11 +2,21 @@
 
 namespace App\Exceptions;
 
+use App\Http\Support\Respond;
 use Exception;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    private $respond;
+
+    public function __construct(Container $container, Respond $respond)
+    {
+        $this -> respond = $respond;
+        parent::__construct($container);
+    }
+
     /**
      * A list of the exception types that are not reported.
      *
@@ -46,6 +56,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->is('api/*')) {
+            return $this->respond->badRequest(array('status'=> false, 'message'=> $exception->getMessage()));
+        }
+
         return parent::render($request, $exception);
     }
 }

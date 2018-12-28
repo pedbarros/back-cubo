@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5093e63f-21c3-4cd3-98c0-9965f0243c14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/InformationRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/InterfaceRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,24 +24,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="10" />
+          <entry key="php" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="10" />
+          <entry key="PHP" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="php" value="407" />
+          <entry key="php" value="436" />
+          <entry key="txt" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="407" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PHP" value="436" />
+          <entry key="PLAIN_TEXT" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -94,10 +93,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="191">
+              <caret line="23" column="65" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="65" />
               <folding>
                 <element signature="e#44#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+              <folding>
+                <element signature="e#34#63#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,6 +138,7 @@
         <option value="$PROJECT_DIR$/app/Http/Support/Respond.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Repositories/InformationRepository.php" />
+        <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" />
       </list>
     </option>
@@ -266,6 +278,12 @@
               <item name="back-cubo" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-cubo" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="back-cubo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-cubo" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -317,12 +335,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1546020901826</updated>
-      <workItem from="1546020904715" duration="3039000" />
+      <workItem from="1546020904715" duration="3238000" />
     </task>
+    <task id="LOCAL-00001" summary="Add repository pattern to the project">
+      <created>1546024014735</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546024014735</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3039000" />
+    <option name="totallyTimeSpent" value="3238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="698" extended-state="6" />
@@ -355,6 +381,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add repository pattern to the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add repository pattern to the project" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Http/Support/Respond.php">
@@ -392,11 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-304" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Information.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -411,10 +436,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="e#34#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="191">
+          <caret line="23" column="65" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="65" />
           <folding>
             <element signature="e#44#80#0#PHP" expanded="true" />
           </folding>
