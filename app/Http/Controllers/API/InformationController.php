@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Support\Respond;
 use App\Models\Information;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class InformationController extends Controller
 {
@@ -31,5 +31,25 @@ class InformationController extends Controller
         }
     }
 
+    public function store(Request $request){
+        try {
 
+            /*
+                ADD VALIDATION HERE
+            */
+
+
+            $information = Information::create($request->all());
+
+            if ($information) {
+                return $this -> respond -> ok(["status" => true, "data" => $information]);
+            } else {
+                return $this -> respond -> ok(["status" => false, "data" => []]);
+            }
+
+
+        } catch (\Exception $e) {
+            return $this -> respond -> badRequest(["status" => false, "data" => "There was a problem saving information. Error" . $e]);
+        }
+    }
 }
