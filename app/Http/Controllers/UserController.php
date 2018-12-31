@@ -59,12 +59,14 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $rules = [
+            'name' => 'required',
             'email' => 'required|unique:users|max:255',
             'password' => 'required',
         ];
 
         $messages =  [
             'email.required' => 'Você precisa especificar o email!',
+            'name.required' => 'Você precisa especificar o nome!',
             'email.unique' => 'O email precisa ser unico!',
             'password.required' => 'Você precisa especificar a senha!',
         ];
