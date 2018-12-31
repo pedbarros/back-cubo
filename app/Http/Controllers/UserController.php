@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Support\Respond;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -26,42 +25,38 @@ class UserController extends Controller
         /*
          ADD VALIDATION HERE
          */
-
-
         try {
             if (!auth()->attempt(['email' => $request->get('email'),
-                                 'password' => $request->get('password')],
-                        false)) {
-                return $this->respond->ok(["N TA CERTO"]);
+                'password' => $request->get('password')], false)) {
+                return $this->respond->badRequest(["status" => false, "data" => $e]);
             }
         } catch (\Exception $e) {
-            return $this->respond->ok([$e]);
+            return $this->respond->badRequest(["status" => false, "data" => $e]);
         }
 
 
         $user = Auth::user();
-        dd($user);
-        // $token = $this->jwtAuth->fromUser($user);
+        $user->token =  $user->createToken($user->_id)-> accessToken;
 
-        // return response()->json(compact('access', 'token', 'user'));
+        return $this->respond->ok(["status" => true, "data" => $user]);
     }
 
 
     public function register(Request $request)
     {
         try {
-            $user = User::create(['name' => "Pedro", 'email' => "pedro@pedro.com", 'password' => "123"]);
+            $user = User::create($request->all());
             $user->token = $user->createToken($user->_id)->accessToken;
 
 
             if ($user) {
-                return $this->respond->ok($user);
+                return $this->respond->ok(["status" => true, "data" => $user]);
             }
 
-            return $this->respond->ok([]);
+            return $this->respond->ok(["status" => false, "data" => []]);
 
         } catch (\Exception $e) {
-            return $this->respond->badRequest([]);
+            return $this->respond->badRequest(["status" => false, "data" => $e]);
         }
     }
 
