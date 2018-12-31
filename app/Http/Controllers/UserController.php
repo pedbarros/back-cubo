@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginUserRequest;
 use App\Http\Support\Respond;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -22,16 +23,29 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        /*
-         ADD VALIDATION HERE
-         */
+        $rules = [
+            'email' => 'required|max:255',
+            'password' => 'required',
+        ];
+
+        $messages =  [
+            'email.required' => 'Você precisa especificar o email!',
+            'password.required' => 'Você precisa especificar a senha!',
+        ];
+
+        $errors = Validator::make($request->all(), $rules, $messages)->errors();
+
+        foreach ($errors->all() as $message) {
+            return $this->respond->badRequest(["status" => false, "data" => $message]);
+        }
+
         try {
             if (!auth()->attempt(['email' => $request->get('email'),
                 'password' => $request->get('password')], false)) {
-                return $this->respond->badRequest(["status" => false, "data" => $e]);
+                return $this->respond->badRequest(["status" => false, "data" => "Credenciais inválidas"]);
             }
         } catch (\Exception $e) {
-            return $this->respond->badRequest(["status" => false, "data" => $e]);
+            return $this->respond->badRequest(["status" => false, "data" => $e->getMessage()]);
         }
 
 
@@ -44,6 +58,23 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        $rules = [
+            'email' => 'required|unique:users|max:255',
+            'password' => 'required',
+        ];
+
+        $messages =  [
+            'email.required' => 'Você precisa especificar o email!',
+            'email.unique' => 'O email precisa ser unico!',
+            'password.required' => 'Você precisa especificar a senha!',
+        ];
+
+        $errors = Validator::make($request->all(), $rules, $messages)->errors();
+
+        foreach ($errors->all() as $message) {
+            return $this->respond->badRequest(["status" => false, "data" => $message]);
+        }
+
         try {
             $user = User::create($request->all());
             $user->token = $user->createToken($user->_id)->accessToken;
