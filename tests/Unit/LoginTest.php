@@ -40,7 +40,7 @@ class LoginTest extends TestCase
     {
         $number = rand(1,100);
         $payload = [
-            'name' => 'Pedro' . rand(1,100),
+            'name' => 'Pedro' . $number,
             'email' => "pedro{$number}@pedro$number.com",
             'password' => $number,
         ];
