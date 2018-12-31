@@ -21,4 +21,11 @@ class Respond
     {
         return response()->json($value, 400);
     }
+
+    public function unauthorized($value)
+    {
+        return response()->json($value, 401);
+    }
+
+
 }
