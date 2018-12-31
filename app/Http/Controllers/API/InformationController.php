@@ -4,10 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Support\Respond;
-use App\Models\Information;
+use Validator;
 use App\Repositories\InformationRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
 class InformationController extends Controller
 {
@@ -24,23 +23,36 @@ class InformationController extends Controller
             $information = $this -> informationRepository->getAll();
 
             if($information){
-                return $this->respond->ok($information);
+                return $this->respond->ok(["status" => true, "data" => $information]);
             }
 
-            return $this->respond->ok([]);
+            return $this->respond->ok(["status" => false, "data" => []]);
 
         }catch (\Exception $e){
-            return $this->respond->badRequest([]);
+            return $this->respond->badRequest(["status" => false, "data" => []]);
         }
     }
 
     public function store(Request $request){
         try {
 
-            /*
-                ADD VALIDATION HERE
-            */
+            $rules = [
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'participation' => 'required',
+            ];
 
+            $messages =  [
+                'firstName.required' => 'Você precisa especificar o primeiro nome!',
+                'lastName.required' => 'Você precisa especificar o ultimo nome!',
+                'participation.required' => 'Você precisa especificar a participação!',
+            ];
+
+            $errors = Validator::make($request->all(), $rules, $messages)->errors();
+
+            foreach ($errors->all() as $message) {
+                return $this->respond->badRequest(["status" => false, "data" => $message]);
+            }
 
             $information = $this -> informationRepository->create($request->all());
 

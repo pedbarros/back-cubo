@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginUserRequest;
 use App\Http\Support\Respond;
 use Validator;
 use Illuminate\Support\Facades\Auth;
