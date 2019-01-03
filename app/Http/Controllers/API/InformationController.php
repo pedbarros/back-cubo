@@ -64,7 +64,23 @@ class InformationController extends Controller
 
 
         } catch (\Exception $e) {
-            return $this -> respond -> badRequest(["status" => false, "data" => "There was a problem saving information. Error" . $e]);
+            return $this -> respond -> badRequest(["status" => false, "data" => "Ocorreu um erro ao salvar a informação. Error" . $e]);
+        }
+    }
+
+
+    public function destroy($id){
+        try{
+            $information = $this -> informationRepository->delete($id);
+
+            if($information){
+                return $this->respond->ok(["status" => true, "data" => "Informação deletada com sucesso!"]);
+            }
+
+            return $this->respond->ok(["status" => false, "data" => "Não foi possível deletar a informação!"]);
+
+        }catch (\Exception $e){
+            return $this->respond->badRequest(["status" => false, "Ocorreu um erro ao deletar a informação. Error" . $e]);
         }
     }
 }
