@@ -47,4 +47,17 @@ class InformationRepository implements InterfaceRepository
         $this->getById($id)->delete();
         return true;
     }
+
+    public function getSumParticipation()
+    {
+        return $this->model->all()->sum('participation');
+    }
+
+    public function permissionToAddInformation()
+    {
+        return ( $this->getSumParticipation() > 100 );
+    }
+
+
+
 }

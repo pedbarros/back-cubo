@@ -39,19 +39,25 @@ class InformationController extends Controller
             $rules = [
                 'firstName' => 'required',
                 'lastName' => 'required',
-                'participation' => 'required',
+                'participation' => 'required|numeric|min:1|max:100',
             ];
 
             $messages =  [
                 'firstName.required' => 'Você precisa especificar o primeiro nome!',
                 'lastName.required' => 'Você precisa especificar o ultimo nome!',
                 'participation.required' => 'Você precisa especificar a participação!',
+                'participation.min' => 'Você precisa especificar a participação com o minino valor 1!',
+                'participation.max' => 'Você precisa especificar a participação com o máximo valor 100!',
             ];
 
             $errors = Validator::make($request->all(), $rules, $messages)->errors();
 
             foreach ($errors->all() as $message) {
                 return $this->respond->badRequest(["status" => false, "data" => $message]);
+            }
+
+            if($this -> informationRepository->permissionToAddInformation() ){
+                return $this->respond->badRequest(["status" => false, "data" => "A porcentagem máxima de participação é 100%."]);
             }
 
             $information = $this -> informationRepository->create($request->all());
