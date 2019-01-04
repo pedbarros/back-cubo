@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5093e63f-21c3-4cd3-98c0-9965f0243c14" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/InformationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/InformationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +18,7 @@
     <session id="1411602499">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.6" value="1" />
@@ -51,16 +50,16 @@
         <counts>
           <entry key="dummy" value="10" />
           <entry key="json" value="1" />
-          <entry key="php" value="2263" />
-          <entry key="txt" value="290" />
+          <entry key="php" value="2269" />
+          <entry key="txt" value="291" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="PHP" value="2263" />
-          <entry key="PLAIN_TEXT" value="300" />
+          <entry key="PHP" value="2269" />
+          <entry key="PLAIN_TEXT" value="301" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -82,20 +81,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+            <state relative-caret-position="195">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="e#44#80#0#PHP" expanded="true" />
               </folding>
@@ -134,7 +133,6 @@
         <option value="$PROJECT_DIR$/tests/Unit/InformationTest.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/tests/Unit/LoginTest.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/InformationStoreRequestBkp.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AbstractFormRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/InformationStoreRequest.php" />
@@ -143,6 +141,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Repositories/InformationRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -324,16 +323,6 @@
             <path>
               <item name="back-cubo" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-cubo" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-cubo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-cubo" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-cubo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-cubo" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,7 +392,7 @@
       <workItem from="1546253545017" duration="11513000" />
       <workItem from="1546267670416" duration="64000" />
       <workItem from="1546609315997" duration="3519000" />
-      <workItem from="1546623446685" duration="171000" />
+      <workItem from="1546623446685" duration="915000" />
     </task>
     <task id="LOCAL-00001" summary="Add repository pattern to the project">
       <created>1546024014735</created>
@@ -475,17 +464,24 @@
       <option name="project" value="LOCAL" />
       <updated>1546613949509</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Passing the amount of information to be inserted">
+      <created>1546623653444</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1546623653444</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20339000" />
+    <option name="totallyTimeSpent" value="21083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="698" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2659091" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2659091" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -500,7 +496,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.5440141" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.3503521" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.3503521" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,7 +520,8 @@
     <MESSAGE value="Changes random test register" />
     <MESSAGE value="Add validation max 100% participation" />
     <MESSAGE value="Add validation request user and information" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add validation request user and information" />
+    <MESSAGE value="Passing the amount of information to be inserted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passing the amount of information to be inserted" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Repositories/InterfaceRepository.php">
@@ -713,13 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/InformationRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -729,11 +719,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/InformationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        <state relative-caret-position="195">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="e#44#80#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>

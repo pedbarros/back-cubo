@@ -38,7 +38,7 @@ class InformationController extends Controller
         try {
 
             if($this -> informationRepository->permissionToAddInformation($request->post('participation')) ){
-                return $this->respond->badRequest(["status" => false, "data" => "A porcentagem máxima de participação é 100%."]);
+                return $this->respond->badRequest(["status" => false, "data" => "A porcentagem máxima total de participação é 100%."]);
             }
 
             $information = $this -> informationRepository->create($request->all());
