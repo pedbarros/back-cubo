@@ -53,9 +53,9 @@ class InformationRepository implements InterfaceRepository
         return $this->model->all()->sum('participation');
     }
 
-    public function permissionToAddInformation()
+    public function permissionToAddInformation($addParticipation)
     {
-        return ( $this->getSumParticipation() > 100 );
+        return (  ( $this->getSumParticipation() + $addParticipation ) > 100  );
     }
 
 

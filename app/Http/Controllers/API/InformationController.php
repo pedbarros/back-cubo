@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InformationStoreRequest;
 use App\Http\Support\Respond;
+use Illuminate\Http\Request;
 use Validator;
 use App\Repositories\InformationRepository;
 
@@ -35,7 +36,8 @@ class InformationController extends Controller
 
     public function store(InformationStoreRequest $request){
         try {
-            if($this -> informationRepository->permissionToAddInformation() ){
+
+            if($this -> informationRepository->permissionToAddInformation($request->post('participation')) ){
                 return $this->respond->badRequest(["status" => false, "data" => "A porcentagem máxima de participação é 100%."]);
             }
 
