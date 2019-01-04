@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class LoginUserRequest  extends FormRequest
+class RegisterUserRequest  extends FormRequest
 {
 
     public function authorize()
@@ -13,7 +13,7 @@ class LoginUserRequest  extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|max:255',
+            'email' => 'required|unique:users|max:255',
             'password' => 'required',
         ];
     }
@@ -27,6 +27,7 @@ class LoginUserRequest  extends FormRequest
     {
         return [
             'email.required' => 'Você precisa especificar o email!',
+            'email.unique' => 'O email precisa ser unico!',
             'password.required' => 'Você precisa especificar a senha!',
         ];
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginUserRequest;
+use App\Http\Requests\RegisterUserRequest;
 use App\Http\Support\Respond;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -20,24 +22,8 @@ class UserController extends Controller
         $this->informationRepository = $informationRepository;
     }
 
-    public function login(Request $request)
+    public function login(LoginUserRequest $request)
     {
-        $rules = [
-            'email' => 'required|max:255',
-            'password' => 'required',
-        ];
-
-        $messages =  [
-            'email.required' => 'Você precisa especificar o email!',
-            'password.required' => 'Você precisa especificar a senha!',
-        ];
-
-        $errors = Validator::make($request->all(), $rules, $messages)->errors();
-
-        foreach ($errors->all() as $message) {
-            return $this->respond->badRequest(["status" => false, "data" => $message]);
-        }
-
         try {
             if (!auth()->attempt(['email' => $request->get('email'),
                 'password' => $request->get('password')], false)) {
@@ -55,27 +41,8 @@ class UserController extends Controller
     }
 
 
-    public function register(Request $request)
+    public function register(RegisterUserRequest $request)
     {
-        $rules = [
-            'name' => 'required',
-            'email' => 'required|unique:users|max:255',
-            'password' => 'required',
-        ];
-
-        $messages =  [
-            'email.required' => 'Você precisa especificar o email!',
-            'name.required' => 'Você precisa especificar o nome!',
-            'email.unique' => 'O email precisa ser unico!',
-            'password.required' => 'Você precisa especificar a senha!',
-        ];
-
-        $errors = Validator::make($request->all(), $rules, $messages)->errors();
-
-        foreach ($errors->all() as $message) {
-            return $this->respond->badRequest(["status" => false, "data" => $message]);
-        }
-
         try {
             $user = User::create($request->all());
             $user->token = $user->createToken($user->_id)->accessToken;
