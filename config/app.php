@@ -178,7 +178,7 @@ return [
 
         Jenssegers\Mongodb\MongodbServiceProvider::class,
         DesignMyNight\Mongodb\MongodbPassportServiceProvider::class,
-	Barryvdh\Cors\ServiceProvider::class,
+	    Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
