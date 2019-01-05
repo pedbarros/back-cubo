@@ -17,9 +17,9 @@ class LoginTest extends TestCase
             ]);
     }
 
-    public function _testUserLoginsSuccessfully()
+    public function testUserLoginsSuccessfully()
     {
-        $payload = ['email' => 'cubo@cubo.com', 'password' => 'cubo123'];
+        $payload = ['email' => 'pedro@pedro.com', 'password' => '123'];
 
         $this->json('POST', 'api/login', $payload)
             ->assertOk()
